@@ -1,0 +1,24 @@
+Our goal here is to prove that:
+
+WORST-CASE runtime complexity of HEAPSORT is not O(n). (I.e., Heapsort is slower than O(n))
+Consider a rough code looks like
+
+
+Every time when we tried to adjust the heap, we switch the nodes.
+Since the sctructure of heap is a tree, we know that the height of the tree will be approximately:
+h = log(n); n is the number of node
+
+Every time we successfully do one switching, h will decrease for one, and in total
+it will cost n-1 switching (worst case) since we have n nodes in total.
+Thus, everytime we do switching, we need to compare log(j) times (2<j<n). (because we have the height to be log(n))
+
+In total, we need to do log(2)+log(3)+ ... +log(n-1)+log(n) times of comparison.
+This is equal to log(n*(n-1)*...*3*2) = log(n!)
+
+since n! <= n^n, but n! >= (0.5n)^(0.5n)
+we can claim that (n/2) <= log(n!) <= nlog(n)
+
+Therefore, we can at lease conclude that this takes O(log(n!)) which is larger that O(n)
+
+QED.
+
